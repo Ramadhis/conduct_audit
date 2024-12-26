@@ -1,0 +1,263 @@
+/* Wrapper for sidebar layout */
+#wrapper {
+    display: flex;
+    height: 100vh;
+}
+
+/* Card Styling */
+.card {
+    display: flex;
+    /* Menggunakan Flexbox untuk fleksibilitas */
+    flex-direction: column;
+    /* Menyusun item secara vertikal */
+    padding: 20px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Efek bayangan */
+    transition: all 0.3s ease;
+    /* Efek transisi untuk animasi */
+}
+
+/* Card akan menyesuaikan tinggi sesuai dengan kontennya */
+.card.flexible {
+    align-items: stretch;
+    /* Membiarkan konten memanjang sesuai ukuran */
+    justify-content: flex-start;
+    /* Menyusun item ke atas */
+    max-width: 100%;
+    /* Menyediakan ruang maksimal */
+    min-height: 100px;
+    /* Menentukan tinggi minimal */
+}
+
+/* Gaya heading dalam card */
+.card .card-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Gaya konten dalam card */
+.card .card-content {
+    flex-grow: 1;
+    /* Konten akan mengisi ruang yang tersedia */
+}
+
+/* Responsivitas untuk Card */
+@media (max-width: 768px) {
+    .card {
+        padding: 15px;
+        margin: 10px 0;
+    }
+}
+
+/* Animasi saat hover */
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    /* Efek bayangan lebih besar */
+    transform: translateY(-2px);
+    /* Efek mengangkat sedikit */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    position: fixed;
+    height: 100%;
+    left: -250px;
+    top: 0;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.show {
+    left: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar .components a {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar .components a i {
+    font-size: 1.2rem;
+}
+
+.sidebar .components a:hover {
+    color: #007bff;
+}
+
+/* Submenu styling */
+#conductAuditSubmenu {
+    padding-left: 15px;
+}
+
+/* Page Content */
+#page-content {
+    flex-grow: 1;
+    padding-left: 0;
+    transition: padding-left 0.3s ease;
+}
+
+#page-content.slide {
+    padding-left: 250px;
+}
+
+.navbar {
+    padding: 10px 20px;
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+label {
+    cursor: pointer;
+
+}
+
+#upload-attachment {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Kelas utama untuk formulir */
+.audit-form {
+    width: fit-content;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    /* Warna latar belakang form */
+}
+
+/* Label */
+.audit-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Input */
+.audit-form input[type="text"],
+.audit-form input[type="date"],
+.audit-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+/* Tombol */
+.audit-form button {
+    background-color: #4CAF50;
+    /* Warna hijau untuk tombol submit */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.audit-form button:hover {
+    background-color: #3e8e41;
+    /* Warna hijau lebih gelap saat dihover */
+}
+
+/* Tombol cancel */
+.audit-form button[type="cancel"] {
+    background-color: #f44336;
+    /* Warna merah untuk tombol cancel */
+    color: white;
+}
+
+.audit-form button[type="cancel"]:hover {
+    background-color: #d32f2f;
+}
+
+/* Container untuk Tombol */
+.button-container {
+    margin: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+/* Gaya tombol */
+.btn-primary,
+.btn-secondary,
+.btn-light {
+    padding: 8px 16px;
+    margin: 2px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Gaya Tabel */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.audit-check-table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.audit-check-table th,
+.audit-check-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.audit-check-table thead th {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.audit-check-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.audit-check-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Gaya untuk elemen form dalam tabel */
+.audit-check-table select.form-control {
+    width: 100%;
+    padding: 4px;
+    font-size: 13px;
+}
+
+.audit-check-table input[type="file"] {
+    font-size: 13px;
+}
